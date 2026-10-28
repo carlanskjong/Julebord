@@ -1,0 +1,89 @@
+{
+  "oppdatert": "2026-10-28T20:45:00+01:00",
+  "svar": [
+    {
+      "restaurant": "Cru",
+      "status": "Svart",
+      "sendt": "2026-10-28",
+      "svar": "2026-10-28",
+      "meny": "5 retter",
+      "pris_pp": 950,
+      "allergi": "Ja, endringer +150 kr for gjesten med allergier",
+      "tid": "Ledig fra 19:45",
+      "rom": "Ikke nevnt",
+      "vilkar": "Felles regning. Antall kan justeres til 24 t før. No-show/kansellering: én meny per gjest. 10 % service fra 10 gjester.",
+      "neste": "De spør om de skal booke 5 retter og hvilket klokkeslett",
+      "meny_bilde": "meny/cru.jpg"
+    },
+    {
+      "restaurant": "Kolonialen",
+      "status": "Venter",
+      "sendt": "2026-10-28",
+      "svar": "",
+      "meny": "",
+      "pris_pp": null,
+      "allergi": "",
+      "tid": "",
+      "rom": "",
+      "vilkar": "",
+      "neste": "",
+      "meny_bilde": ""
+    },
+    {
+      "restaurant": "Eik",
+      "status": "Venter",
+      "sendt": "2026-10-28",
+      "svar": "",
+      "meny": "",
+      "pris_pp": null,
+      "allergi": "",
+      "tid": "",
+      "rom": "",
+      "vilkar": "",
+      "neste": "",
+      "meny_bilde": ""
+    },
+    {
+      "restaurant": "Klosteret",
+      "status": "Venter",
+      "sendt": "2026-10-28",
+      "svar": "",
+      "meny": "",
+      "pris_pp": null,
+      "allergi": "",
+      "tid": "",
+      "rom": "",
+      "vilkar": "",
+      "neste": "",
+      "meny_bilde": ""
+    },
+    {
+      "restaurant": "Vaaghals",
+      "status": "Venter",
+      "sendt": "2026-10-28",
+      "svar": "",
+      "meny": "",
+      "pris_pp": null,
+      "allergi": "",
+      "tid": "",
+      "rom": "",
+      "vilkar": "",
+      "neste": "",
+      "meny_bilde": ""
+    },
+    {
+      "restaurant": "Arakataka",
+      "status": "Venter",
+      "sendt": "2026-10-28",
+      "svar": "",
+      "meny": "",
+      "pris_pp": null,
+      "allergi": "",
+      "tid": "",
+      "rom": "",
+      "vilkar": "",
+      "neste": "",
+      "meny_bilde": ""
+    }
+  ]
+}
