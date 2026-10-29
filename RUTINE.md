@@ -38,6 +38,7 @@ Denne filen er oppskriften den planlagte oppgaven følger. Endre her, ikke i opp
    - Skriv kort med egne ord. Ta med retten, hovedråvarene og allergenene, og bruk den menyen restauranten viste til.
    - Finner du ingen meny, setter du bare meny_lenke til menysiden deres.
    - Restauranter som allerede har meny_bilde eller meny_tekst, hoppes over.
+   **Info fra nettsiden:** Feltene nettside, omrade, om og fra_nettsiden er fylt ut på forhånd for alle restaurantene. La dem stå når et svar kommer. fra_nettsiden vises bare så lenge status er Venter. Legges det til en ny restaurant, fyller du ut disse feltene først.
 5. **Merk som behandlet** med `python3 -I verktoy/oppdater.py marker <nye ID-er>`. Kjør deretter `python3 -I verktoy/oppdater.py valider`.
 6. **Publiser.**
    - Commit med forfatter `Carl-Andreas Skjong <carlan.skjong@gmail.com>`. Avslutt commit-meldingen med linjen `Co-Authored-By: Claude <noreply@anthropic.com>`.

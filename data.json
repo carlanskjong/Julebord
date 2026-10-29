@@ -1,5 +1,5 @@
 {
-  "oppdatert": "2026-10-29T07:45:14+01:00",
+  "oppdatert": "2026-10-29T07:49:25+01:00",
   "svar": [
     {
       "restaurant": "Cru",
@@ -13,7 +13,10 @@
       "rom": "Ikke nevnt",
       "vilkar": "Felles regning. Antall kan justeres til 24 t før. No-show/kansellering: én meny per gjest. 10 % service fra 10 gjester.",
       "neste": "De spør om de skal booke 5 retter og hvilket klokkeslett",
-      "meny_bilde": "meny/cru.jpg"
+      "meny_bilde": "meny/cru.jpg",
+      "nettside": "https://www.cru.no/",
+      "omrade": "Bjørvika (Dronning Eufemias gate 6A)",
+      "om": "Fransk-inspirert norsk kjøkken med et av byens største vinkart (rundt 900 viner). Anbefalt i Michelin-guiden. Har chambre séparée for opptil 20."
     },
     {
       "restaurant": "Kolonialen",
@@ -27,7 +30,11 @@
       "rom": "",
       "vilkar": "",
       "neste": "",
-      "meny_bilde": ""
+      "meny_bilde": "",
+      "nettside": "https://kolonialenbislett.no/",
+      "omrade": "Bislett (Sofies gate 16)",
+      "om": "Nabolagsbistro i en gammel kolonialbutikk. Kort sesongmeny, østers og norske klassikere i moderne drakt, rundt 1700 viner. Omtalt i Michelin-guiden 2026. Lørdag åpent 12–24.",
+      "fra_nettsiden": "Vi fant ingen fast selskapsmeny på nettet. À la carte-hovedretter lå på rundt 360 kr i 2023."
     },
     {
       "restaurant": "Eik",
@@ -41,7 +48,11 @@
       "rom": "",
       "vilkar": "",
       "neste": "",
-      "meny_bilde": ""
+      "meny_bilde": "",
+      "nettside": "https://restauranteik.no/",
+      "omrade": "Sentrum, ved Nasjonalgalleriet (Universitetsgata 11)",
+      "om": "Gourmetrestaurant med fast ukemeny. Har fått Bib Gourmand i Michelin-guiden mange ganger. Har chambre séparée.",
+      "fra_nettsiden": "3 retter 695 kr eller 4 retter 845 kr per person (ukens meny). Obs: restauranteik.no sender nå videre til Eik Annen Etage. Det kan bety at Eik i Universitetsgata har endret drift, så sjekk svaret nøye."
     },
     {
       "restaurant": "Klosteret",
@@ -55,7 +66,13 @@
       "rom": "",
       "vilkar": "",
       "neste": "",
-      "meny_bilde": ""
+      "meny_bilde": "",
+      "nettside": "https://www.klosteret.no/",
+      "omrade": "Ved Grünerløkka (Fredensborgveien 13)",
+      "om": "Kjellerrestaurant under murhvelv, med hundrevis av levende lys og en prisbelønt vinkjeller (800+ viner). Åpent lørdag fra kl. 17.",
+      "fra_nettsiden": "Julebord med 3 eller 5 retter, f.eks. villkveite med klementinhollandaise, rosastekt dåhjort og crema catalana med gløggsorbet. Selskaper over 8 personer kan forhåndsbestille egen selskapsmeny. Pris er ikke oppgitt på nettet.",
+      "meny_lenke": "https://www.klosteret.no/s/SELSKAPSMENY-HST-KLOSTERET.pdf",
+      "meny_kilde": "Lenken går til selskapsmenyen (høst) på klosteret.no."
     },
     {
       "restaurant": "Vaaghals",
@@ -69,7 +86,18 @@
       "rom": "",
       "vilkar": "",
       "neste": "",
-      "meny_bilde": ""
+      "meny_bilde": "",
+      "nettside": "https://www.vaaghals.com/",
+      "omrade": "Bjørvika (Dronning Eufemias gate 8)",
+      "om": "Moderne norsk kjøkken med sesongråvarer. Anbefalt i Michelin-guiden, 90 poeng i Falstaff 2026. Har chambre séparée i andre etasje.",
+      "fra_nettsiden": "Fjorårets julemeny (2024): 3 retter til 895 kr inkludert snacks og søtt til kaffen. Fellesmenyen gjaldt grupper på 9 eller flere, med 100 % belastning ved avbestilling senere enn 48 timer før. Årets meny er ikke publisert ennå.",
+      "meny_tekst": [
+        "Torsk og spisskål fra Toten med umamiglaze og nyr (melk, fisk, egg, sennep, soya, sulfitt)",
+        "Kalvebryst med persillerot, fennikelglaze og byggotto (melk, selleri, bygg, sennep, egg, soya, sulfitt)",
+        "Mørk sjokolade og solbær med krydderkake (melk, egg, hvete, soya, sulfitt)"
+      ],
+      "meny_lenke": "https://www.vaaghals.com/eventer/jul-pa-menyen-2024",
+      "meny_kilde": "Fjorårets julemeny (2024) fra vaaghals.com. Årets meny kan bli annerledes."
     },
     {
       "restaurant": "Arakataka",
@@ -92,7 +120,10 @@
         "Epler fra Knatten med bokhvete og myske (melk, hvete, egg, sulfitt)"
       ],
       "meny_lenke": "https://www.arakataka.no/_files/ugd/ae3af9_8ec66bbc34df4b0e938cd2c007584454.pdf",
-      "meny_kilde": "Hentet fra gruppemenyen på arakataka.no. Menyen er sesongbasert og kan endre seg innen 12. desember."
+      "meny_kilde": "Hentet fra gruppemenyen på arakataka.no. Menyen er sesongbasert og kan endre seg innen 12. desember.",
+      "nettside": "https://www.arakataka.no/",
+      "omrade": "Sentrum, ved Rockefeller (Mariboes gate 7)",
+      "om": "Uformell, Michelin-anbefalt restaurant med nordisk sesongmat. Kjent for god pris for kvaliteten."
     }
   ],
   "behandlet": [

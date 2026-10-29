@@ -34,7 +34,7 @@ FELT = ["restaurant", "status", "sendt", "svar", "meny", "pris_pp", "allergi",
         "tid", "rom", "vilkar", "neste", "meny_bilde"]
 # Valgfrie felt: meny_tekst (liste med retter, skriv med | mellom retter i «sett»),
 # meny_lenke (https-lenke til menyen på restaurantens nettside), meny_kilde (kort tekst).
-VALGFRIE = ["meny_tekst", "meny_lenke", "meny_kilde"]
+VALGFRIE = ["meny_tekst", "meny_lenke", "meny_kilde", "nettside", "omrade", "om", "fra_nettsiden"]
 STATUSER = {"Svart", "Venter", "Avslått", "Booket"}
 OSLO = dt.timezone(dt.timedelta(hours=1))
 

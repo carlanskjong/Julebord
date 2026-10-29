@@ -48,12 +48,12 @@
   .h2 { font-size: 15px; font-weight: 600; margin: 26px 0 10px; color: var(--muted); }
   .list { display: flex; flex-direction: column; gap: 10px; }
   .r { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
-  .r.wait { padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .r.wait { border-left: 4px solid var(--line); }
   .r.answered { border-left: 4px solid var(--spruce); }
   .r.no { border-left: 4px solid var(--line); }
   .r-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
   .name { font-family: var(--serif); font-weight: 400; font-size: 22px; line-height: 1.2; margin: 0; }
-  .r.wait .name { font-size: 18px; }
+  .r.wait .name { font-size: 20px; }
   .chip { font-size: 13px; white-space: nowrap; padding: 2px 10px; border-radius: 999px; }
   .chip.ok { background: var(--spruce-soft); color: var(--spruce); font-weight: 600; }
   .chip.wait { color: var(--muted); background: var(--frost); }
@@ -62,6 +62,15 @@
   .price b { font-family: var(--serif); font-weight: 400; font-size: 30px; }
   .price small { color: var(--muted); font-size: 14px; margin-left: 4px; }
   .when { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+  .where { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
+  .about { margin: 10px 0 0; font-size: 14px; color: var(--ink); }
+  .web { margin-top: 12px; background: var(--frost); border-radius: 10px; padding: 10px 12px; }
+  .web p { margin: 0; }
+  .web-k { font-size: 13px; color: var(--muted); }
+  .web-v { font-size: 15px; margin-top: 2px !important; }
+  .actions { display: flex; gap: 8px; margin-top: 14px; }
+  .actions .btn { margin-top: 0; flex: 1; text-align: center; text-decoration: none; line-height: 42px; }
+  .btn.ghost { background: var(--paper); color: var(--ink); }
   .total { margin: 2px 0 0; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
   dl { margin: 12px 0 0; display: grid; gap: 10px; }
   dl div { border-top: 1px solid var(--line); padding-top: 10px; }
@@ -175,9 +184,34 @@
     const dag = (iso) => { const d = new Date(iso); return isNaN(d) ? '' : d.toLocaleString('nb-NO', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Oslo' }); };
     const pris = (r) => Number(r.pris_pp) > 0 ? Number(r.pris_pp) : Infinity;
     for (const r of [...svar].sort((a, b) => rang(a.status) - rang(b.status) || pris(a) - pris(b))) {
+      const knapper = () => {
+        const rad = mk('div', 'actions');
+        if (harMeny(r)) {
+          const b = mk('button', 'btn', 'Se menyen'); b.type = 'button';
+          b.addEventListener('click', () => visMeny(r, b));
+          rad.append(b);
+        }
+        if (typeof r.nettside === 'string' && r.nettside.startsWith('https://')) {
+          const a = mk('a', 'btn ghost', 'Nettside'); a.href = r.nettside; a.target = '_blank'; a.rel = 'noopener';
+          rad.append(a);
+        }
+        return rad.children.length ? rad : null;
+      };
+      const omrade = () => r.omrade ? mk('p', 'where', r.omrade) : null;
+
       if (r.status === 'Venter') {
         const k = mk('article', 'r wait');
-        k.append(mk('h3', 'name', r.restaurant), mk('span', 'chip wait', 'Venter på svar'));
+        const head = mk('div', 'r-head');
+        head.append(mk('h3', 'name', r.restaurant), mk('span', 'chip wait', 'Venter på svar'));
+        k.append(head);
+        const o = omrade(); if (o) k.append(o);
+        if (r.om) k.append(mk('p', 'about', r.om));
+        if (r.fra_nettsiden) {
+          const box = mk('div', 'web');
+          box.append(mk('p', 'web-k', 'Fra nettsiden, før de har svart'), mk('p', 'web-v', r.fra_nettsiden));
+          k.append(box);
+        }
+        const kn = knapper(); if (kn) k.append(kn);
         liste.append(k); continue;
       }
       const svart = r.status === 'Svart' || r.status === 'Booket';
@@ -185,6 +219,7 @@
       const head = mk('div', 'r-head');
       head.append(mk('h3', 'name', r.restaurant), mk('span', 'chip ' + (svart ? 'ok' : 'no'), r.status === 'Svart' ? 'Har svart' : r.status));
       k.append(head);
+      const o = omrade(); if (o) k.append(o);
       if (r.svar) k.append(mk('p', 'when', 'Svarte ' + dag(r.svar)));
       if (r.pris_pp) {
         const p = mk('p', 'price');
@@ -200,11 +235,8 @@
         dl.append(row);
       }
       if (dl.children.length) k.append(dl);
-      if (harMeny(r)) {
-        const b = mk('button', 'btn', 'Se menyen'); b.type = 'button';
-        b.addEventListener('click', () => visMeny(r, b));
-        k.append(b);
-      }
+      if (r.om) k.append(mk('p', 'about', r.om));
+      const kn = knapper(); if (kn) k.append(kn);
       liste.append(k);
     }
 
