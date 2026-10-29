@@ -61,6 +61,8 @@
   .price { margin: 8px 0 0; font-variant-numeric: tabular-nums; }
   .price b { font-family: var(--serif); font-weight: 400; font-size: 30px; }
   .price small { color: var(--muted); font-size: 14px; margin-left: 4px; }
+  .when { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+  .total { margin: 2px 0 0; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
   dl { margin: 12px 0 0; display: grid; gap: 10px; }
   dl div { border-top: 1px solid var(--line); padding-top: 10px; }
   dt { font-size: 13px; color: var(--muted); }
@@ -141,27 +143,31 @@
   const tegn = (data) => {
     const svar = data.svar || [];
     const priser = svar.map((r) => Number(r.pris_pp)).filter((p) => p > 0);
-    $('svart').textContent = svar.filter((r) => r.status === 'Svart').length + ' av ' + svar.length;
+    $('svart').textContent = svar.filter((r) => r.status !== 'Venter').length + ' av ' + svar.length;
     $('lavest').textContent = priser.length ? kr(Math.min(...priser)) : '–';
 
     const rang = (s) => s === 'Svart' ? 0 : s === 'Venter' ? 1 : 2;
     const liste = $('liste');
     liste.replaceChildren();
-    for (const r of [...svar].sort((a, b) => rang(a.status) - rang(b.status))) {
+    const dag = (iso) => { const d = new Date(iso); return isNaN(d) ? '' : d.toLocaleString('nb-NO', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Oslo' }); };
+    const pris = (r) => Number(r.pris_pp) > 0 ? Number(r.pris_pp) : Infinity;
+    for (const r of [...svar].sort((a, b) => rang(a.status) - rang(b.status) || pris(a) - pris(b))) {
       if (r.status === 'Venter') {
         const k = mk('article', 'r wait');
         k.append(mk('h3', 'name', r.restaurant), mk('span', 'chip wait', 'Venter på svar'));
         liste.append(k); continue;
       }
-      const svart = r.status === 'Svart';
+      const svart = r.status === 'Svart' || r.status === 'Booket';
       const k = mk('article', 'r ' + (svart ? 'answered' : 'no'));
       const head = mk('div', 'r-head');
-      head.append(mk('h3', 'name', r.restaurant), mk('span', 'chip ' + (svart ? 'ok' : 'no'), svart ? 'Har svart' : r.status));
+      head.append(mk('h3', 'name', r.restaurant), mk('span', 'chip ' + (svart ? 'ok' : 'no'), r.status === 'Svart' ? 'Har svart' : r.status));
       k.append(head);
+      if (r.svar) k.append(mk('p', 'when', 'Svarte ' + dag(r.svar)));
       if (r.pris_pp) {
         const p = mk('p', 'price');
         p.append(mk('b', null, kr(r.pris_pp)), mk('small', null, 'per person' + (r.meny ? ', ' + r.meny.toLowerCase() : '')));
         k.append(p);
+        k.append(mk('p', 'total', 'Mat for 9 personer: ca. ' + kr(Number(r.pris_pp) * 9) + ', uten drikke og tillegg'));
       }
       const dl = mk('dl');
       for (const [f, navn] of [['tid', 'Tidspunkt'], ['allergi', 'Allergier'], ['rom', 'Rom'], ['vilkar', 'Vilkår'], ['neste', 'Venter på oss']]) {

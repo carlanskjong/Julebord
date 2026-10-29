@@ -1,11 +1,11 @@
 {
-  "oppdatert": "2026-10-28T20:45:00+01:00",
+  "oppdatert": "2026-10-29T07:37:31+01:00",
   "svar": [
     {
       "restaurant": "Cru",
       "status": "Svart",
       "sendt": "2026-10-28",
-      "svar": "2026-10-28",
+      "svar": "2026-10-28T20:20:00+01:00",
       "meny": "5 retter",
       "pris_pp": 950,
       "allergi": "Ja, endringer +150 kr for gjesten med allergier",
@@ -73,17 +73,21 @@
     },
     {
       "restaurant": "Arakataka",
-      "status": "Venter",
+      "status": "Svart",
       "sendt": "2026-10-28",
-      "svar": "",
-      "meny": "",
-      "pris_pp": null,
-      "allergi": "",
-      "tid": "",
+      "svar": "2026-10-28T21:57:00+01:00",
+      "meny": "5 retter, sesongbasert",
+      "pris_pp": 895,
+      "allergi": "Ja, menyen kan tilpasses alle allergier med beskjed på forhånd",
+      "tid": "Ledig bord kl. 20:00",
       "rom": "",
-      "vilkar": "",
-      "neste": "",
+      "vilkar": "Gjelder grupper over 5 personer. Bordet er ikke reservert ennå.",
+      "neste": "Vil ha rask beskjed hvis vi ønsker å booke (bordet holdes ikke av)",
       "meny_bilde": ""
     }
+  ],
+  "behandlet": [
+    "1a183f4e436825ce",
+    "1a1844e0b0b25a81"
   ]
 }
