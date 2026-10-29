@@ -1,5 +1,5 @@
 {
-  "oppdatert": "2026-10-29T13:34:59+01:00",
+  "oppdatert": "2026-10-29T17:53:38+01:00",
   "svar": [
     {
       "restaurant": "Cru",
@@ -29,13 +29,14 @@
       "tid": "Fullt 12. des og alle fre/lør i desember; mulig ukedag kl. 20:00 (2. bordsetning)",
       "rom": "Ikke nevnt",
       "vilkar": "Grupper på rundt 10 bør forhåndsbestille meny; 3 retter 927 kr, Full Experience (østers, Pata Negra og 3 retter) 1 125 kr per person; kansellering, servicetillegg og regning ikke nevnt.",
-      "neste": "Spør om de skal sjekke en ukedag i desember for oss",
+      "neste": "Ingenting. Vi takket nei til alternativ dato 29. okt.",
       "meny_bilde": "",
       "nettside": "https://kolonialenbislett.no/",
       "omrade": "Bislett (Sofies gate 16)",
       "om": "Nabolagsbistro i en gammel kolonialbutikk. Kort sesongmeny, østers og norske klassikere i moderne drakt, rundt 1700 viner. Omtalt i Michelin-guiden 2026. Lørdag åpent 12–24.",
       "fra_nettsiden": "Vi fant ingen fast selskapsmeny på nettet. À la carte-hovedretter lå på rundt 360 kr i 2023.",
-      "meny_lenke": "https://www.kolonialenbislett.no/"
+      "meny_lenke": "https://www.kolonialenbislett.no/",
+      "auto_avslag": "2026-10-29T17:53:00+01:00"
     },
     {
       "restaurant": "Eik",
@@ -98,7 +99,8 @@
         "Mørk sjokolade og solbær med krydderkake (melk, egg, hvete, soya, sulfitt)"
       ],
       "meny_lenke": "https://www.vaaghals.com/eventer/jul-pa-menyen-2024",
-      "meny_kilde": "Fjorårets julemeny (2024) fra vaaghals.com. Årets meny kan bli annerledes."
+      "meny_kilde": "Fjorårets julemeny (2024) fra vaaghals.com. Årets meny kan bli annerledes.",
+      "auto_avslag": "2026-10-29T12:38:00+01:00"
     },
     {
       "restaurant": "Arakataka",
