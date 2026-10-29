@@ -1,5 +1,5 @@
 {
-  "oppdatert": "2026-10-29T07:49:25+01:00",
+  "oppdatert": "2026-10-29T11:09:49+01:00",
   "svar": [
     {
       "restaurant": "Cru",
@@ -76,16 +76,16 @@
     },
     {
       "restaurant": "Vaaghals",
-      "status": "Venter",
+      "status": "Avslått",
       "sendt": "2026-10-28",
-      "svar": "",
-      "meny": "",
+      "svar": "2026-10-29T10:36:00+01:00",
+      "meny": "Ikke aktuelt",
       "pris_pp": null,
-      "allergi": "",
-      "tid": "",
-      "rom": "",
-      "vilkar": "",
-      "neste": "",
+      "allergi": "Tilbyr tilrettelegging ved annen dato",
+      "tid": "Fullbooket 12. des",
+      "rom": "Ikke aktuelt",
+      "vilkar": "Kort foretrekkes, faktura må avtales; avbestilling senere enn 7 dager før gir 50 % belastning, og avbestilling/reduksjon av meny under 48 t før gir 100 %.",
+      "neste": "Spør om en alternativ dato er aktuelt",
       "meny_bilde": "",
       "nettside": "https://www.vaaghals.com/",
       "omrade": "Bjørvika (Dronning Eufemias gate 8)",
@@ -128,6 +128,7 @@
   ],
   "behandlet": [
     "1a183f4e436825ce",
-    "1a1844e0b0b25a81"
+    "1a1844e0b0b25a81",
+    "1a187048f8930d9b"
   ]
 }
