@@ -82,6 +82,12 @@
   .sheet-head h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 22px; }
   .close { font: inherit; font-size: 15px; min-height: 40px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--snow); color: var(--ink); cursor: pointer; }
   .sheet img { display: block; width: 100%; height: auto; border-radius: 8px; }
+  .retter { margin: 4px 0 0; padding-left: 1.4em; font-family: var(--serif); font-size: 18px; line-height: 1.45; }
+  .retter li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .retter li:last-child { border-bottom: 0; }
+  .kilde { display: block; margin-top: 16px; min-height: 44px; line-height: 44px; text-align: center; border-radius: 12px; border: 1px solid var(--ink); color: var(--ink); font-weight: 600; text-decoration: none; }
+  .kilde:focus-visible { outline: 3px solid var(--lingon); outline-offset: 2px; }
+  .kilde-note { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
   @media (prefers-reduced-motion: no-preference) {
     .modal:not([hidden]) .sheet { animation: up .28s cubic-bezier(.2,.8,.2,1); }
     @keyframes up { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
@@ -131,11 +137,28 @@
   $('close').addEventListener('click', lukk);
   modal.addEventListener('click', (e) => { if (e.target === modal) lukk(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) lukk(); });
+  const harTekst = (r) => Array.isArray(r.meny_tekst) && r.meny_tekst.length > 0;
+  const harLenke = (r) => typeof r.meny_lenke === 'string' && r.meny_lenke.startsWith('https://');
+  const harMeny = (r) => harBilde(r) || harTekst(r) || harLenke(r);
   const visMeny = (r, knapp) => {
     sistFokus = knapp;
-    $('modal-title').textContent = 'Menykort fra ' + r.restaurant;
-    const img = mk('img'); img.src = r.meny_bilde; img.alt = 'Menykort fra ' + r.restaurant;
-    $('menybilde').replaceChildren(img);
+    $('modal-title').textContent = 'Menyen hos ' + r.restaurant;
+    const deler = [];
+    if (harBilde(r)) {
+      const img = mk('img'); img.src = r.meny_bilde; img.alt = 'Menykort fra ' + r.restaurant;
+      deler.push(img);
+    } else if (harTekst(r)) {
+      const ol = mk('ol', 'retter');
+      for (const t of r.meny_tekst) ol.append(mk('li', null, t));
+      deler.push(ol);
+    }
+    if (harLenke(r)) {
+      const a = mk('a', 'kilde', harBilde(r) || harTekst(r) ? 'Åpne originalen hos ' + r.restaurant : 'Se menyen hos ' + r.restaurant);
+      a.href = r.meny_lenke; a.target = '_blank'; a.rel = 'noopener';
+      deler.push(a);
+    }
+    if (r.meny_kilde) deler.push(mk('p', 'kilde-note', r.meny_kilde));
+    $('menybilde').replaceChildren(...deler);
     modal.hidden = false;
     $('close').focus();
   };
@@ -177,7 +200,7 @@
         dl.append(row);
       }
       if (dl.children.length) k.append(dl);
-      if (harBilde(r)) {
+      if (harMeny(r)) {
         const b = mk('button', 'btn', 'Se menyen'); b.type = 'button';
         b.addEventListener('click', () => visMeny(r, b));
         k.append(b);

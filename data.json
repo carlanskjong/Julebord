@@ -1,5 +1,5 @@
 {
-  "oppdatert": "2026-10-29T07:37:31+01:00",
+  "oppdatert": "2026-10-29T07:45:14+01:00",
   "svar": [
     {
       "restaurant": "Cru",
@@ -83,7 +83,16 @@
       "rom": "",
       "vilkar": "Gjelder grupper over 5 personer. Bordet er ikke reservert ennå.",
       "neste": "Vil ha rask beskjed hvis vi ønsker å booke (bordet holdes ikke av)",
-      "meny_bilde": ""
+      "meny_bilde": "",
+      "meny_tekst": [
+        "Tartar av storfe fra Horgen med 'nduja (egg, sennep, sulfitt)",
+        "Rødbete fra Linnestad med løpstikke og blåmuggost (hvete, melk, egg, selleri, sulfitt)",
+        "Breiflabb med skogsopp og brødmiso (melk, fisk, hvete, bygg, selleri, sulfitt)",
+        "Lam fra Fallet gård med kål og einebær (melk, bygg, sulfitt)",
+        "Epler fra Knatten med bokhvete og myske (melk, hvete, egg, sulfitt)"
+      ],
+      "meny_lenke": "https://www.arakataka.no/_files/ugd/ae3af9_8ec66bbc34df4b0e938cd2c007584454.pdf",
+      "meny_kilde": "Hentet fra gruppemenyen på arakataka.no. Menyen er sesongbasert og kan endre seg innen 12. desember."
     }
   ],
   "behandlet": [

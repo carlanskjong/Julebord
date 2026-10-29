@@ -31,6 +31,13 @@ Denne filen er oppskriften den planlagte oppgaven følger. Endre her, ikke i opp
    - neste er det restauranten venter svar på fra oss.
    - Er svaret et oppfølgingssvar i en tråd der Carl-Andreas har svart, oppdaterer du de feltene som er endret.
 4. **Lagre menyvedlegg** (bilde eller PDF). Hent meldingen med get_message messageFormat RAW. Resultatet lagres som en fil. Kjør `python3 -I verktoy/oppdater.py vedlegg <fil> "<Restaurant>"`.
+   **Uten vedlegg:** Når en restaurant har oppgitt meny eller pris, men ikke lagt ved menyen, henter du den fra nettsiden deres.
+   - Bruk WebSearch eller WebFetch på restaurantens nettside. Finn lenken til selskaps-, gruppe- eller julemenyen (ofte en PDF) og les den med WebFetch.
+   - Skallet kan vanligvis ikke laste ned fra restaurantsider, så legg menyen inn som tekst:
+     `sett "<Restaurant>" "meny_tekst=Rett 1 (allergener)|Rett 2 (allergener)|..." "meny_lenke=https://<lenke til menyen>" "meny_kilde=Hentet fra <kilde> på <nettsted>. <evt. forbehold>"`
+   - Skriv kort med egne ord. Ta med retten, hovedråvarene og allergenene, og bruk den menyen restauranten viste til.
+   - Finner du ingen meny, setter du bare meny_lenke til menysiden deres.
+   - Restauranter som allerede har meny_bilde eller meny_tekst, hoppes over.
 5. **Merk som behandlet** med `python3 -I verktoy/oppdater.py marker <nye ID-er>`. Kjør deretter `python3 -I verktoy/oppdater.py valider`.
 6. **Publiser.**
    - Commit med forfatter `Carl-Andreas Skjong <carlan.skjong@gmail.com>`. Avslutt commit-meldingen med linjen `Co-Authored-By: Claude <noreply@anthropic.com>`.

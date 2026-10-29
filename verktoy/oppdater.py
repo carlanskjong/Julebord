@@ -32,6 +32,9 @@ ROT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROT, "data.json")
 FELT = ["restaurant", "status", "sendt", "svar", "meny", "pris_pp", "allergi",
         "tid", "rom", "vilkar", "neste", "meny_bilde"]
+# Valgfrie felt: meny_tekst (liste med retter, skriv med | mellom retter i «sett»),
+# meny_lenke (https-lenke til menyen på restaurantens nettside), meny_kilde (kort tekst).
+VALGFRIE = ["meny_tekst", "meny_lenke", "meny_kilde"]
 STATUSER = {"Svart", "Venter", "Avslått", "Booket"}
 OSLO = dt.timezone(dt.timedelta(hours=1))
 
@@ -108,10 +111,14 @@ def sett(navn, par):
     r = rad(d, navn)
     for p in par:
         k, _, v = p.partition("=")
-        if k not in FELT:
+        if k not in FELT + VALGFRIE:
             sys.exit(f"Ukjent felt: {k}")
         if k == "pris_pp":
             v = int(re.sub(r"[^\d]", "", v)) if re.search(r"\d", v) else None
+        if k == "meny_tekst":
+            v = [x.strip() for x in v.split("|") if x.strip()]
+        if k == "meny_lenke" and v and not v.startswith("https://"):
+            sys.exit("meny_lenke må starte med https://")
         r[k] = v
     skriv(d)
 
@@ -132,6 +139,10 @@ def valider():
         mb = r.get("meny_bilde")
         if mb and not os.path.exists(os.path.join(ROT, mb)):
             feil.append(f"{r.get('restaurant')}: finner ikke {mb}")
+        if "meny_tekst" in r and not (isinstance(r["meny_tekst"], list) and all(isinstance(x, str) for x in r["meny_tekst"])):
+            feil.append(f"{r.get('restaurant')}: meny_tekst må være en liste med tekst")
+        if r.get("meny_lenke") and not str(r["meny_lenke"]).startswith("https://"):
+            feil.append(f"{r.get('restaurant')}: meny_lenke må starte med https://")
     if feil:
         print("\n".join(feil))
         sys.exit(1)
