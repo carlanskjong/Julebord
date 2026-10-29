@@ -1,5 +1,5 @@
 {
-  "oppdatert": "2026-10-29T12:37:55+01:00",
+  "oppdatert": "2026-10-29T13:34:59+01:00",
   "svar": [
     {
       "restaurant": "Cru",
@@ -20,21 +20,22 @@
     },
     {
       "restaurant": "Kolonialen",
-      "status": "Venter",
+      "status": "Avslått",
       "sendt": "2026-10-28",
-      "svar": "",
-      "meny": "",
-      "pris_pp": null,
-      "allergi": "",
-      "tid": "",
-      "rom": "",
-      "vilkar": "",
-      "neste": "",
+      "svar": "2026-10-29T12:57:00+01:00",
+      "meny": "3 retter eller Full Experience",
+      "pris_pp": 927,
+      "allergi": "Ja, kjøkkenet kan tilpasse for alle fire allergiene med beskjed i god tid",
+      "tid": "Fullt 12. des og alle fre/lør i desember; mulig ukedag kl. 20:00 (2. bordsetning)",
+      "rom": "Ikke nevnt",
+      "vilkar": "Grupper på rundt 10 bør forhåndsbestille meny; 3 retter 927 kr, Full Experience (østers, Pata Negra og 3 retter) 1 125 kr per person; kansellering, servicetillegg og regning ikke nevnt.",
+      "neste": "Spør om de skal sjekke en ukedag i desember for oss",
       "meny_bilde": "",
       "nettside": "https://kolonialenbislett.no/",
       "omrade": "Bislett (Sofies gate 16)",
       "om": "Nabolagsbistro i en gammel kolonialbutikk. Kort sesongmeny, østers og norske klassikere i moderne drakt, rundt 1700 viner. Omtalt i Michelin-guiden 2026. Lørdag åpent 12–24.",
-      "fra_nettsiden": "Vi fant ingen fast selskapsmeny på nettet. À la carte-hovedretter lå på rundt 360 kr i 2023."
+      "fra_nettsiden": "Vi fant ingen fast selskapsmeny på nettet. À la carte-hovedretter lå på rundt 360 kr i 2023.",
+      "meny_lenke": "https://www.kolonialenbislett.no/"
     },
     {
       "restaurant": "Eik",
@@ -129,6 +130,8 @@
   "behandlet": [
     "1a183f4e436825ce",
     "1a1844e0b0b25a81",
-    "1a187048f8930d9b"
+    "1a187048f8930d9b",
+    "1a1877c854adc6fa",
+    "1a187859fef826c9"
   ]
 }
