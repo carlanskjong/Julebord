@@ -1,5 +1,5 @@
 {
-  "oppdatert": "2026-11-03T07:51:01+01:00",
+  "oppdatert": "2026-11-03T15:12:05+01:00",
   "svar": [
     {
       "restaurant": "Cru",
@@ -135,13 +135,14 @@
     "1a187048f8930d9b",
     "1a1877c854adc6fa",
     "1a187859fef826c9",
-    "1a18c746edadb0a1"
+    "1a18c746edadb0a1",
+    "1a1a1a5ae5679c91"
   ],
   "booking": {
     "restaurant": "Cru",
-    "status": "Venter på bekreftelse",
+    "status": "Bekreftet",
     "bestilt": "2026-11-03T07:47:00+01:00",
-    "bekreftet": "",
+    "bekreftet": "2026-11-03T14:42:14+01:00",
     "dato": "2026-12-12",
     "tid": "19:45",
     "antall": 9,
@@ -182,7 +183,8 @@
       "10 % servicetillegg gjelder fra 10 gjester. Det gjelder ikke oss så lenge vi er 9."
     ],
     "huskeliste": [
-      "Vent på bekreftelse fra Cru.",
+      "Svar Cru: Er melkeallergien laktose eller melkeprotein? Hvis laktose – er smør ok?",
+      "Send eventuelle andre allergier til Cru i god tid før besøket.",
       "Gi beskjed om endring i antall senest fredag 11. desember kl. 19:45.",
       "Vin bestilles på stedet."
     ]
