@@ -1,5 +1,5 @@
 {
-  "oppdatert": "2026-11-03T07:44:14+01:00",
+  "oppdatert": "2026-11-03T07:51:01+01:00",
   "svar": [
     {
       "restaurant": "Cru",
@@ -104,7 +104,7 @@
     },
     {
       "restaurant": "Arakataka",
-      "status": "Svart",
+      "status": "Avslått",
       "sendt": "2026-10-28",
       "svar": "2026-10-28T21:57:00+01:00",
       "meny": "5 retter, sesongbasert",
@@ -113,7 +113,7 @@
       "tid": "Ledig bord kl. 20:00",
       "rom": "",
       "vilkar": "Gjelder grupper over 5 personer. Bordet er ikke reservert ennå.",
-      "neste": "Vil ha rask beskjed hvis vi ønsker å booke (bordet holdes ikke av)",
+      "neste": "Ingenting. Vi takket nei 3. nov.",
       "meny_bilde": "",
       "meny_tekst": [
         "Tartar av storfe fra Horgen med 'nduja (egg, sennep, sulfitt)",
@@ -136,5 +136,55 @@
     "1a1877c854adc6fa",
     "1a187859fef826c9",
     "1a18c746edadb0a1"
-  ]
+  ],
+  "booking": {
+    "restaurant": "Cru",
+    "status": "Venter på bekreftelse",
+    "bestilt": "2026-11-03T07:47:00+01:00",
+    "bekreftet": "",
+    "dato": "2026-12-12",
+    "tid": "19:45",
+    "antall": 9,
+    "meny": "5 retter",
+    "pris_pp": 950,
+    "allergi_tillegg": 150,
+    "allergier": [
+      "Melk",
+      "Egg",
+      "Nøtter",
+      "Sennep"
+    ],
+    "adresse": "Dronning Eufemias gate 6A, 0191 Oslo",
+    "omrade": "Bjørvika, ved Barcode",
+    "kart": "https://www.google.com/maps/search/?api=1&query=Cru%2C+Dronning+Eufemias+gate+6A%2C+0191+Oslo",
+    "telefon": "22 12 05 02",
+    "telefon_tider": "Mandag–lørdag kl. 14–18",
+    "epost": "post@cru.no",
+    "epost_tider": "Besvares mandag–fredag kl. 10–18",
+    "nettside": "https://www.cru.no/",
+    "meny_bilde": "meny/cru.jpg",
+    "retter": [
+      "Hiramasa fra Fredrikstad med reddik, chili, ingefær og kokossaus",
+      "Norske kamskjell med jordskokk, sitron og brunet smør",
+      "Kveite fra Nordland med blåskjell-xo, blomkål, fennikel og sauce de pastis",
+      "And fra Holte gård med gresskar, andelårkrokett og sauce madame",
+      "Krydderposjerte pærer med hylleblomst, karamell, rugcrumble og langpepperiskrem"
+    ],
+    "tillegg": [
+      "Østers med nuoc mam cham: 65 kr per stk",
+      "Bakt Mont d’Or med tilbehør: 300 kr halv, 600 kr hel",
+      "Vinpairing, 5 glass: 950 kr (eller bestill fra vinkartet)"
+    ],
+    "vilkar": [
+      "Antallet kan justeres frem til 24 timer før. Etter det gjelder påmeldt antall.",
+      "Avbestilling eller no-show koster én meny per gjest.",
+      "Selskapet får én felles regning.",
+      "10 % servicetillegg gjelder fra 10 gjester. Det gjelder ikke oss så lenge vi er 9."
+    ],
+    "huskeliste": [
+      "Vent på bekreftelse fra Cru.",
+      "Gi beskjed om endring i antall senest fredag 11. desember kl. 19:45.",
+      "Vin bestilles på stedet."
+    ]
+  }
 }

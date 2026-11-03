@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Julebord 12. desember</title>
-<meta name="description" content="Svar fra restaurantene vi har spurt om julebord lørdag 12. desember.">
-<meta property="og:title" content="Julebord 12. desember">
-<meta property="og:description" content="Svar fra restaurantene vi har spurt. Oppdateres løpende.">
+<title>Julebord på Cru – 12. desember</title>
+<meta name="description" content="Julebord lørdag 12. desember kl. 19:45 på Cru i Bjørvika. Meny, pris, allergier og praktisk info.">
+<meta property="og:title" content="Julebord på Cru – 12. desember">
+<meta property="og:description" content="Lørdag 12. desember kl. 19:45, Dronning Eufemias gate 6A. Meny, pris og praktisk info.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://carlanskjong.github.io/Julebord/meny/cru.jpg">
 <meta name="theme-color" content="#FFFFFF">
@@ -21,7 +21,10 @@
     --spruce: #2E6A4F;
     --spruce-soft: #E3EFE8;
     --lingon: #A8253A;
+    --lingon-soft: #FBEFF1;
     --frost: #EAF0F5;
+    --amber: #8A5A00;
+    --amber-soft: #FFF4DC;
     --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color-scheme: light;
@@ -30,59 +33,63 @@
   html, body { margin: 0; background: var(--snow); color: var(--ink); }
   body { font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-text-size-adjust: 100%; padding-bottom: env(safe-area-inset-bottom); }
   .wrap { max-width: 34rem; margin-inline: auto; padding: 0 16px; }
+  a { color: inherit; }
 
   .hero { background: var(--paper); border-bottom: 1px solid var(--line); padding: 28px 0 22px; }
   .kicker { margin: 0; color: var(--lingon); font-size: 15px; font-weight: 600; }
   .date { margin: 2px 0 0; font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 13vw, 64px); line-height: 1; letter-spacing: -0.02em; }
   .date span { display: block; font-size: 0.42em; letter-spacing: 0; color: var(--muted); margin-top: 8px; }
-  .meta { margin: 14px 0 0; font-size: 15px; }
-  .allergi { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
-  .allergi li { font-size: 13px; padding: 3px 10px; border-radius: 999px; background: var(--frost); }
+  .status { display: inline-flex; align-items: center; gap: 8px; margin: 16px 0 0; padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+  .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+  .status.wait { background: var(--amber-soft); color: var(--amber); }
+  .status.ok { background: var(--spruce-soft); color: var(--spruce); }
+  .status-note { margin: 6px 0 0; font-size: 13px; color: var(--muted); }
 
-  .sum { display: flex; gap: 12px; margin: 18px 0 6px; }
-  .sum > div { flex: 1; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
-  .sum p { margin: 0; }
-  .sum .k { font-size: 13px; color: var(--muted); }
-  .sum .v { font-family: var(--serif); font-size: 26px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 18px 0 0; }
+  .fact { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+  .fact p { margin: 0; }
+  .fact .k { font-size: 13px; color: var(--muted); }
+  .fact .v { font-family: var(--serif); font-size: 22px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+  .fact .s { font-size: 13px; color: var(--muted); margin-top: 2px; }
 
-  .h2 { font-size: 15px; font-weight: 600; margin: 26px 0 10px; color: var(--muted); }
-  .list { display: flex; flex-direction: column; gap: 10px; }
-  .r { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
-  .r.wait { border-left: 4px solid var(--line); }
-  .r.answered { border-left: 4px solid var(--spruce); }
-  .r.no { border-left: 4px solid var(--line); }
-  .r-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-  .name { font-family: var(--serif); font-weight: 400; font-size: 22px; line-height: 1.2; margin: 0; }
-  .r.wait .name { font-size: 20px; }
-  .chip { font-size: 13px; white-space: nowrap; padding: 2px 10px; border-radius: 999px; }
-  .chip.ok { background: var(--spruce-soft); color: var(--spruce); font-weight: 600; }
-  .chip.wait { color: var(--muted); background: var(--frost); }
-  .chip.no { color: var(--lingon); background: #FBEFF1; }
-  .price { margin: 8px 0 0; font-variant-numeric: tabular-nums; }
-  .price b { font-family: var(--serif); font-weight: 400; font-size: 30px; }
-  .price small { color: var(--muted); font-size: 14px; margin-left: 4px; }
-  .when { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
-  .where { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
-  .about { margin: 10px 0 0; font-size: 14px; color: var(--ink); }
-  .web { margin-top: 12px; background: var(--frost); border-radius: 10px; padding: 10px 12px; }
-  .web p { margin: 0; }
-  .web-k { font-size: 13px; color: var(--muted); }
-  .web-v { font-size: 15px; margin-top: 2px !important; }
-  .actions { display: flex; gap: 8px; margin-top: 14px; }
-  .actions .btn { margin-top: 0; flex: 1; text-align: center; text-decoration: none; line-height: 42px; }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 16px; margin-top: 12px; }
+  .card h2 { margin: 0 0 8px; font-family: var(--serif); font-weight: 400; font-size: 22px; line-height: 1.2; }
+  .card p { margin: 0; }
+  .muted { color: var(--muted); font-size: 14px; }
+
+  .price-big { font-family: var(--serif); font-size: 34px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .rows { margin: 12px 0 0; padding: 0; list-style: none; }
+  .rows li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+  .rows li span:last-child { white-space: nowrap; }
+
+  .retter { margin: 4px 0 0; padding-left: 1.4em; font-family: var(--serif); font-size: 17px; line-height: 1.45; }
+  .retter li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .retter li:last-child { border-bottom: 0; }
+  .bullets { margin: 6px 0 0; padding-left: 1.2em; }
+  .bullets li { padding: 3px 0; }
+
+  .allergi { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; padding: 0; list-style: none; }
+  .allergi li { font-size: 14px; padding: 4px 12px; border-radius: 999px; background: var(--lingon-soft); color: var(--lingon); font-weight: 600; }
+
+  .todo { margin: 4px 0 0; padding: 0; list-style: none; }
+  .todo li { position: relative; padding: 8px 0 8px 30px; border-top: 1px solid var(--line); }
+  .todo li:first-child { border-top: 0; }
+  .todo li::before { content: ""; position: absolute; left: 2px; top: 11px; width: 16px; height: 16px; border: 2px solid var(--muted); border-radius: 5px; }
+
+  .btn { font: inherit; font-size: 15px; font-weight: 600; display: block; width: 100%; margin-top: 14px; min-height: 44px; line-height: 42px; text-align: center; text-decoration: none; border: 1px solid var(--ink); border-radius: 12px; background: var(--ink); color: #fff; cursor: pointer; }
   .btn.ghost { background: var(--paper); color: var(--ink); }
-  .total { margin: 2px 0 0; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
-  dl { margin: 12px 0 0; display: grid; gap: 10px; }
-  dl div { border-top: 1px solid var(--line); padding-top: 10px; }
-  dt { font-size: 13px; color: var(--muted); }
-  dd { margin: 2px 0 0; font-size: 15px; }
-  dl .next { background: #FFF6F7; border-radius: 10px; padding: 10px 12px; border-top: 0; }
-  dl .next dt { color: var(--lingon); }
+  .btns { display: flex; gap: 8px; }
+  .btns .btn { flex: 1; }
+  .btn:focus-visible, .close:focus-visible, a:focus-visible { outline: 3px solid var(--lingon); outline-offset: 2px; }
 
-  .btn { font: inherit; font-size: 15px; font-weight: 600; display: block; width: 100%; margin-top: 14px; min-height: 44px; border: 1px solid var(--ink); border-radius: 12px; background: var(--ink); color: #fff; cursor: pointer; }
-  .btn:focus-visible, .close:focus-visible { outline: 3px solid var(--lingon); outline-offset: 2px; }
-  .foot { margin: 22px 0 0; font-size: 13px; color: var(--muted); }
-  .err { color: var(--lingon); }
+  .contact { margin: 6px 0 0; padding: 0; list-style: none; }
+  .contact li { padding: 8px 0; border-top: 1px solid var(--line); }
+  .contact li:first-child { border-top: 0; }
+  .contact a { font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--line); }
+
+  .foot { margin: 22px 0 32px; font-size: 13px; color: var(--muted); }
+  .err { color: var(--lingon); margin-top: 16px; }
+  .skel { color: transparent; background: var(--frost); border-radius: 6px; }
 
   .modal { position: fixed; inset: 0; z-index: 10; display: flex; align-items: flex-end; justify-content: center; background: rgba(28, 42, 53, .55); }
   .modal[hidden] { display: none; }
@@ -91,12 +98,6 @@
   .sheet-head h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 22px; }
   .close { font: inherit; font-size: 15px; min-height: 40px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--snow); color: var(--ink); cursor: pointer; }
   .sheet img { display: block; width: 100%; height: auto; border-radius: 8px; }
-  .retter { margin: 4px 0 0; padding-left: 1.4em; font-family: var(--serif); font-size: 18px; line-height: 1.45; }
-  .retter li { padding: 8px 0; border-bottom: 1px solid var(--line); }
-  .retter li:last-child { border-bottom: 0; }
-  .kilde { display: block; margin-top: 16px; min-height: 44px; line-height: 44px; text-align: center; border-radius: 12px; border: 1px solid var(--ink); color: var(--ink); font-weight: 600; text-decoration: none; }
-  .kilde:focus-visible { outline: 3px solid var(--lingon); outline-offset: 2px; }
-  .kilde-note { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
   @media (prefers-reduced-motion: no-preference) {
     .modal:not([hidden]) .sheet { animation: up .28s cubic-bezier(.2,.8,.2,1); }
     @keyframes up { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
@@ -107,28 +108,74 @@
 <body>
   <header class="hero">
     <div class="wrap">
-      <p class="kicker">Julebord med gjengen</p>
-      <h1 class="date">12. desember<span>Lørdag, middag mellom 19 og 21</span></h1>
-      <p class="meta">Vi blir 8–9 personer. Én gjest kan ikke spise:</p>
-      <ul class="allergi"><li>Melk</li><li>Egg</li><li>Nøtter</li><li>Sennep</li></ul>
+      <p class="kicker">Julebord med gjengen på Cru</p>
+      <h1 class="date">12. desember<span id="naar">Lørdag kl. 19:45</span></h1>
+      <p class="status wait" id="status">Venter på bekreftelse</p>
+      <p class="status-note" id="status-note"></p>
     </div>
   </header>
 
   <main class="wrap">
-    <div class="sum">
-      <div><p class="k">Har svart</p><p class="v" id="svart">–</p></div>
-      <div><p class="k">Billigste meny</p><p class="v" id="lavest">–</p></div>
+    <div class="facts">
+      <div class="fact"><p class="k">Hvor</p><p class="v">Cru</p><p class="s" id="omrade">Bjørvika</p></div>
+      <div class="fact"><p class="k">Hvem</p><p class="v" id="antall">9 personer</p><p class="s">Én med tilpasset meny</p></div>
     </div>
 
-    <h2 class="h2">Restaurantene</h2>
-    <div class="list" id="liste"></div>
+    <section class="card">
+      <h2>Pris</h2>
+      <p class="price-big" id="pp">950 kr</p>
+      <p class="muted">per person for <span id="meny">5 retter</span>, uten drikke</p>
+      <ul class="rows" id="prisrader"></ul>
+    </section>
 
-    <p class="foot" id="foot">Oppdateres når restaurantene svarer.</p>
+    <section class="card">
+      <h2>Menyen</h2>
+      <ol class="retter" id="retter"></ol>
+      <button type="button" class="btn" id="vis-meny">Se menykortet</button>
+      <p class="muted" style="margin-top:14px">Kan bestilles i tillegg:</p>
+      <ul class="bullets" id="tillegg"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Allergier</h2>
+      <p>Én gjest tåler ikke:</p>
+      <ul class="allergi" id="allergier"></ul>
+      <p class="muted" style="margin-top:10px">Allergiene står i bestillingen, og Cru tilpasser menyen. Det koster 150 kr ekstra for denne gjesten.</p>
+    </section>
+
+    <section class="card">
+      <h2>Adresse</h2>
+      <p id="adresse">Dronning Eufemias gate 6A, 0191 Oslo</p>
+      <div class="btns">
+        <a class="btn" id="kart" href="#" target="_blank" rel="noopener">Åpne i kart</a>
+        <a class="btn ghost" id="nettside" href="#" target="_blank" rel="noopener">Nettside</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Vilkår</h2>
+      <ul class="bullets" id="vilkar"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Husk</h2>
+      <ul class="todo" id="huskeliste"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Kontakt Cru</h2>
+      <ul class="contact">
+        <li>Telefon <a id="tlf" href="#">22 12 05 02</a><br><span class="muted" id="tlf-tider"></span></li>
+        <li>E-post <a id="epost" href="#">post@cru.no</a><br><span class="muted" id="epost-tider"></span></li>
+      </ul>
+    </section>
+
+    <p class="foot" id="foot">Oppdateres automatisk.</p>
   </main>
 
   <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="sheet">
-      <div class="sheet-head"><h3 id="modal-title">Menykort</h3><button type="button" class="close" id="close">Lukk</button></div>
+      <div class="sheet-head"><h3 id="modal-title">Menykort fra Cru</h3><button type="button" class="close" id="close">Lukk</button></div>
       <div id="menybilde"></div>
     </div>
   </div>
@@ -136,114 +183,75 @@
 <script>
 (() => {
   const $ = (id) => document.getElementById(id);
-  const kr = (v) => (v == null || v === '' || isNaN(Number(v))) ? '' : new Intl.NumberFormat('nb-NO').format(Number(v)) + ' kr';
+  const kr = (v) => new Intl.NumberFormat('nb-NO').format(Number(v)) + ' kr';
   const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
-  const harBilde = (r) => typeof r.meny_bilde === 'string' && /^meny\/[\w.-]+\.(jpe?g|png|webp)$/i.test(r.meny_bilde);
+  const fyll = (id, items, cls) => { const el = $(id); el.replaceChildren(...(items || []).map((t) => mk('li', cls, String(t)))); };
+  const trygg = (u, pre) => typeof u === 'string' && pre.some((p) => u.startsWith(p)) ? u : null;
 
   const modal = $('modal');
-  let sistFokus = null;
+  let bilde = null, sistFokus = null;
   const lukk = () => { modal.hidden = true; $('menybilde').replaceChildren(); if (sistFokus) sistFokus.focus(); };
   $('close').addEventListener('click', lukk);
   modal.addEventListener('click', (e) => { if (e.target === modal) lukk(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) lukk(); });
-  const harTekst = (r) => Array.isArray(r.meny_tekst) && r.meny_tekst.length > 0;
-  const harLenke = (r) => typeof r.meny_lenke === 'string' && r.meny_lenke.startsWith('https://');
-  const harMeny = (r) => harBilde(r) || harTekst(r) || harLenke(r);
-  const visMeny = (r, knapp) => {
-    sistFokus = knapp;
-    $('modal-title').textContent = 'Menyen hos ' + r.restaurant;
-    const deler = [];
-    if (harBilde(r)) {
-      const img = mk('img'); img.src = r.meny_bilde; img.alt = 'Menykort fra ' + r.restaurant;
-      deler.push(img);
-    } else if (harTekst(r)) {
-      const ol = mk('ol', 'retter');
-      for (const t of r.meny_tekst) ol.append(mk('li', null, t));
-      deler.push(ol);
-    }
-    if (harLenke(r)) {
-      const a = mk('a', 'kilde', harBilde(r) || harTekst(r) ? 'Åpne originalen hos ' + r.restaurant : 'Se menyen hos ' + r.restaurant);
-      a.href = r.meny_lenke; a.target = '_blank'; a.rel = 'noopener';
-      deler.push(a);
-    }
-    if (r.meny_kilde) deler.push(mk('p', 'kilde-note', r.meny_kilde));
-    $('menybilde').replaceChildren(...deler);
-    modal.hidden = false;
-    $('close').focus();
-  };
+  $('vis-meny').addEventListener('click', (e) => {
+    if (!bilde) return;
+    sistFokus = e.currentTarget;
+    const img = mk('img'); img.src = bilde; img.alt = 'Menykort fra Cru';
+    $('menybilde').replaceChildren(img);
+    modal.hidden = false; $('close').focus();
+  });
+
+  const dato = (iso, opts) => { const d = new Date(iso); return isNaN(d) ? '' : d.toLocaleString('nb-NO', Object.assign({ timeZone: 'Europe/Oslo' }, opts)); };
 
   const tegn = (data) => {
-    const svar = data.svar || [];
-    const priser = svar.map((r) => Number(r.pris_pp)).filter((p) => p > 0);
-    $('svart').textContent = svar.filter((r) => r.status !== 'Venter').length + ' av ' + svar.length;
-    $('lavest').textContent = priser.length ? kr(Math.min(...priser)) : '–';
+    const b = data.booking;
+    if (!b) throw new Error('mangler booking');
+    const ok = b.status === 'Bekreftet';
+    const st = $('status');
+    st.className = 'status ' + (ok ? 'ok' : 'wait');
+    st.textContent = ok ? 'Bekreftet av Cru' : (b.status || 'Venter på bekreftelse');
+    $('status-note').textContent = ok && b.bekreftet
+      ? 'Bekreftet ' + dato(b.bekreftet, { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }) + '.'
+      : (b.bestilt ? 'Bestilling sendt ' + dato(b.bestilt, { weekday: 'long', day: 'numeric', month: 'long' }) + '. Siden oppdateres når Cru bekrefter.' : '');
 
-    const rang = (s) => s === 'Svart' ? 0 : s === 'Venter' ? 1 : 2;
-    const liste = $('liste');
-    liste.replaceChildren();
-    const dag = (iso) => { const d = new Date(iso); return isNaN(d) ? '' : d.toLocaleString('nb-NO', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Oslo' }); };
-    const pris = (r) => Number(r.pris_pp) > 0 ? Number(r.pris_pp) : Infinity;
-    for (const r of [...svar].sort((a, b) => rang(a.status) - rang(b.status) || pris(a) - pris(b))) {
-      const knapper = () => {
-        const rad = mk('div', 'actions');
-        if (harMeny(r)) {
-          const b = mk('button', 'btn', 'Se menyen'); b.type = 'button';
-          b.addEventListener('click', () => visMeny(r, b));
-          rad.append(b);
-        }
-        if (typeof r.nettside === 'string' && r.nettside.startsWith('https://')) {
-          const a = mk('a', 'btn ghost', 'Nettside'); a.href = r.nettside; a.target = '_blank'; a.rel = 'noopener';
-          rad.append(a);
-        }
-        return rad.children.length ? rad : null;
-      };
-      const omrade = () => r.omrade ? mk('p', 'where', r.omrade) : null;
+    $('naar').textContent = 'Lørdag kl. ' + (b.tid || '19:45');
+    $('omrade').textContent = b.omrade || '';
+    $('antall').textContent = (b.antall || 9) + ' personer';
+    $('pp').textContent = kr(b.pris_pp);
+    $('meny').textContent = (b.meny || '').toLowerCase();
 
-      if (r.status === 'Venter') {
-        const k = mk('article', 'r wait');
-        const head = mk('div', 'r-head');
-        head.append(mk('h3', 'name', r.restaurant), mk('span', 'chip wait', 'Venter på svar'));
-        k.append(head);
-        const o = omrade(); if (o) k.append(o);
-        if (r.om) k.append(mk('p', 'about', r.om));
-        if (r.fra_nettsiden) {
-          const box = mk('div', 'web');
-          box.append(mk('p', 'web-k', 'Fra nettsiden, før de har svart'), mk('p', 'web-v', r.fra_nettsiden));
-          k.append(box);
-        }
-        const kn = knapper(); if (kn) k.append(kn);
-        liste.append(k); continue;
-      }
-      const svart = r.status === 'Svart' || r.status === 'Booket';
-      const k = mk('article', 'r ' + (svart ? 'answered' : 'no'));
-      const head = mk('div', 'r-head');
-      head.append(mk('h3', 'name', r.restaurant), mk('span', 'chip ' + (svart ? 'ok' : 'no'), r.status === 'Svart' ? 'Har svart' : r.status));
-      k.append(head);
-      const o = omrade(); if (o) k.append(o);
-      if (r.svar) k.append(mk('p', 'when', 'Svarte ' + dag(r.svar)));
-      if (r.pris_pp) {
-        const p = mk('p', 'price');
-        p.append(mk('b', null, kr(r.pris_pp)), mk('small', null, 'per person' + (r.meny ? ', ' + r.meny.toLowerCase() : '')));
-        k.append(p);
-        k.append(mk('p', 'total', 'Mat for 9 personer: ca. ' + kr(Number(r.pris_pp) * 9) + ', uten drikke og tillegg'));
-      }
-      const dl = mk('dl');
-      for (const [f, navn] of [['tid', 'Tidspunkt'], ['allergi', 'Allergier'], ['rom', 'Rom'], ['vilkar', 'Vilkår'], ['neste', 'Venter på oss']]) {
-        if (!r[f] || r[f] === 'Ikke nevnt') continue;
-        const row = mk('div', f === 'neste' ? 'next' : null);
-        row.append(mk('dt', null, navn), mk('dd', null, String(r[f])));
-        dl.append(row);
-      }
-      if (dl.children.length) k.append(dl);
-      if (r.om) k.append(mk('p', 'about', r.om));
-      const kn = knapper(); if (kn) k.append(kn);
-      liste.append(k);
-    }
+    const n = Number(b.antall) || 0, pp = Number(b.pris_pp) || 0, til = Number(b.allergi_tillegg) || 0;
+    const rader = [
+      [n + ' × ' + kr(pp), kr(n * pp)],
+      ['Allergitilpasning, 1 gjest', kr(til)],
+      ['Mat totalt', kr(n * pp + til)],
+      ['Per person, delt likt', 'ca. ' + kr(Math.round((n * pp + til) / n))]
+    ];
+    $('prisrader').replaceChildren(...rader.map(([a, v], i) => {
+      const li = mk('li'); li.append(mk('span', null, a), mk('span', null, v));
+      if (i === 2) li.style.fontWeight = '600';
+      return li;
+    }));
 
-    if (data.oppdatert) {
-      const d = new Date(data.oppdatert);
-      if (!isNaN(d)) $('foot').textContent = 'Sist oppdatert ' + d.toLocaleString('nb-NO', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Oslo' }) + '.';
-    }
+    fyll('retter', b.retter);
+    fyll('tillegg', b.tillegg);
+    fyll('allergier', b.allergier);
+    fyll('vilkar', b.vilkar);
+    fyll('huskeliste', b.huskeliste);
+
+    $('adresse').textContent = b.adresse || '';
+    const kart = trygg(b.kart, ['https://www.google.com/maps/']); if (kart) $('kart').href = kart;
+    const nett = trygg(b.nettside, ['https://']); if (nett) $('nettside').href = nett;
+    if (b.telefon) { $('tlf').textContent = b.telefon; $('tlf').href = 'tel:+47' + b.telefon.replace(/\D/g, ''); }
+    $('tlf-tider').textContent = b.telefon_tider || '';
+    if (b.epost) { $('epost').textContent = b.epost; $('epost').href = 'mailto:' + b.epost; }
+    $('epost-tider').textContent = b.epost_tider || '';
+
+    bilde = trygg(b.meny_bilde, ['meny/']);
+    $('vis-meny').hidden = !bilde;
+
+    if (data.oppdatert) $('foot').textContent = 'Sist oppdatert ' + dato(data.oppdatert, { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }) + '.';
   };
 
   const hent = async () => {
@@ -252,7 +260,7 @@
       if (!res.ok) throw new Error(res.status);
       tegn(await res.json());
     } catch (e) {
-      if (!$('liste').children.length) { const p = mk('p', 'err', 'Fikk ikke hentet svarene. Last siden på nytt om litt.'); $('liste').replaceChildren(p); }
+      if (!document.querySelector('.err')) $('foot').before(mk('p', 'err', 'Fikk ikke hentet siste oppdatering. Last siden på nytt om litt.'));
     }
   };
   hent();

@@ -11,6 +11,8 @@ Kommandoer (kjør fra repo-roten):
       (maks 1100 px bredde, JPEG 72) og setter meny_bilde på raden.
   python3 -I verktoy/oppdater.py sett RESTAURANT felt=verdi [felt=verdi ...]
       Oppdaterer felt på én rad. pris_pp gjøres om til tall. Setter «oppdatert».
+  python3 -I verktoy/oppdater.py booking felt=verdi [felt=verdi ...]
+      Oppdaterer bookingen (status, bekreftet, tid, antall, huskeliste osv.). Lister skrives med |.
   python3 -I verktoy/oppdater.py valider
       Sjekker data.json og at menybildene finnes. Avslutter med feilkode ved feil.
   python3 -I verktoy/oppdater.py artefakt UTFIL
@@ -149,15 +151,31 @@ def valider():
     print(f"OK: {len(d['svar'])} restauranter, {len(d.get('behandlet', []))} behandlede meldinger")
 
 
-def artefakt(ut):
+LISTEFELT = {"allergier", "retter", "tillegg", "vilkar", "huskeliste"}
+
+
+def booking(par):
+    """Oppdaterer data.json["booking"]. Lister skrives med | mellom elementene."""
     d = les()
-    rader = []
-    for r in d["svar"]:
-        r = dict(r)
-        mb = r.get("meny_bilde")
-        r["meny_bilde"] = ("data:image/jpeg;base64," + base64.b64encode(open(os.path.join(ROT, mb), "rb").read()).decode()) if mb else ""
-        rader.append(r)
-    json.dump(rader, open(ut, "w", encoding="utf-8"), ensure_ascii=False)
+    b = d.setdefault("booking", {})
+    for p in par:
+        k, _, v = p.partition("=")
+        if k in LISTEFELT:
+            v = [x.strip() for x in v.split("|") if x.strip()]
+        elif k in ("antall", "pris_pp", "allergi_tillegg"):
+            v = int(re.sub(r"[^\d]", "", v))
+        b[k] = v
+    skriv(d)
+
+
+def artefakt(ut):
+    """Claude-oversikten viser bookingen: én rad med alle bookingfeltene, menybilde som data-URL."""
+    d = les()
+    b = dict(d.get("booking") or {})
+    mb = b.get("meny_bilde")
+    b["meny_bilde"] = ("data:image/jpeg;base64," + base64.b64encode(open(os.path.join(ROT, mb), "rb").read()).decode()) if mb else ""
+    b["oppdatert"] = d.get("oppdatert", "")
+    json.dump([b], open(ut, "w", encoding="utf-8"), ensure_ascii=False)
     print(f"{ut} ({os.path.getsize(ut)//1024} kB)")
 
 
@@ -179,6 +197,8 @@ def main(a):
         vedlegg(a[1], a[2])
     elif k == "sett" and len(a) >= 3:
         sett(a[1], a[2:])
+    elif k == "booking" and len(a) >= 2:
+        booking(a[1:])
     elif k == "valider":
         valider()
     elif k == "artefakt" and len(a) == 2:
