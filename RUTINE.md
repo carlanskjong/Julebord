@@ -31,6 +31,7 @@ Denne filen er oppskriften den planlagte oppgaven følger. Endre her, ikke i opp
    - vilkar er én setning om kansellering, servicetillegg og regning.
    - neste er det restauranten venter svar på fra oss.
    - Er svaret et oppfølgingssvar i en tråd der Carl-Andreas har svart, oppdaterer du de feltene som er endret.
+   - Bekrefter en restaurant en bestilling Carl-Andreas har sendt (Cru ble bestilt 3. nov. for 9 personer kl. 19:45), setter du status=Booket. Legg i neste det de eventuelt ber om, f.eks. allergiliste eller frister. Ta det tydelig med øverst i oppsummeringen.
 3b. **Automatisk avslag av alternativ dato.** Dette er det eneste svaret du kan sende uten å spørre.
    - Send svaret bare når alle disse er sanne:
      1. Meldingen kommer fra en av de seks restaurantene, fra adressen i listen over eller samme domene.
