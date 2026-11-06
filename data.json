@@ -1,5 +1,5 @@
 {
-  "oppdatert": "2026-11-03T15:12:05+01:00",
+  "oppdatert": "2026-11-06T19:05:01+01:00",
   "svar": [
     {
       "restaurant": "Cru",
@@ -150,7 +150,7 @@
     "pris_pp": 950,
     "allergi_tillegg": 150,
     "allergier": [
-      "Melk",
+      "Melkeprotein (vegansk smør og melk går fint)",
       "Egg",
       "Nøtter",
       "Sennep"
@@ -183,8 +183,6 @@
       "10 % servicetillegg gjelder fra 10 gjester. Det gjelder ikke oss så lenge vi er 9."
     ],
     "huskeliste": [
-      "Svar Cru: Er melkeallergien laktose eller melkeprotein? Hvis laktose – er smør ok?",
-      "Send eventuelle andre allergier til Cru i god tid før besøket.",
       "Gi beskjed om endring i antall senest fredag 11. desember kl. 19:45.",
       "Vin bestilles på stedet."
     ]
